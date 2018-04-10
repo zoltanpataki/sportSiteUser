@@ -21,9 +21,6 @@ public class UserService {
         String email = requestParams.get("email");
         String firstname = requestParams.get("firstname");
         String lastname = requestParams.get("lastname");
-        if (checkRegistrationDatas(username, password, email, firstname, lastname)){
-
-        }
         try {
             if(username.length() > 4 || password.length() > 4) {
                 User newUser = new User(firstname, lastname, username, password, email);
@@ -33,10 +30,6 @@ public class UserService {
             System.out.println(e);
         }
 
-    }
-
-    public boolean checkRegistrationDatas(String username, String password, String email, String firstname, String lastname){
-        return (username.length() < 4 || password.length() < 4 || email.length() < 4 || firstname.length() < 1 || lastname.length() < 2);
     }
 
     public void login(Map<String, String> requestParams, HttpSession session) {
