@@ -23,7 +23,7 @@ public class UserService {
         String lastname = requestParams.get("lastname");
         try {
             if(username.length() > 4 || password.length() > 4) {
-                User newUser = new User(firstname, lastname, username, password, email);
+                User newUser = new User(firstname, lastname, email, username, password);
                 userRepository.save(newUser);
             }
         } catch (Exception e) {
