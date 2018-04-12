@@ -32,18 +32,18 @@ public class UserService {
 
     }
 
-    public void login(Map<String, String> requestParams, HttpSession session) {
+    public String login(Map<String, String> requestParams, HttpSession session) {
         String username = requestParams.get("username");
         String password = requestParams.get("password");
-        try {
-            User result = userRepository.findByUsername(username);
-            String id = String.valueOf(result.getId());
-            if (result.getUsername().equals(username) && result.getPassword().equals(password)) {
-                session.setAttribute("userId", id);
-            }
-        } catch (javax.persistence.NoResultException e) {
-            e.printStackTrace();
+        User result = userRepository.findByUsername(username);
+        if (result == null) {
+            return "no such user";
         }
+        String id = String.valueOf(result.getId());
+        if (result.getUsername().equals(username) && result.getPassword().equals(password)) {
+            session.setAttribute("userId", id);
+        }
+        return "Successful login"; // ENUM
     }
 
 

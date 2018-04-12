@@ -2,6 +2,8 @@ package com.codecool.sportSite.Controller;
 
 import com.codecool.sportSite.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,18 +21,21 @@ public class UserController {
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@RequestParam Map<String, String> reqPar) {
         userService.register(reqPar);
-        return "redirect:/";
+        return "Success registration";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@RequestParam Map<String, String> reqPar, HttpSession session){
-        userService.login(reqPar, session);
-        return "redirect:/";
+        String result = userService.login(reqPar, session);
+        if (result.equals("Successful login")) {
+            return "Successful login";
+        }
+        return "Login failed: " + result;
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public String logout(HttpSession session) {
+    public ResponseEntity logout(HttpSession session) {
         userService.logoutUser(session);
-        return "redirect:/";
+        return new ResponseEntity<>("Success logout", HttpStatus.OK);
     }
 }
