@@ -1,13 +1,12 @@
 package com.codecool.sportSite.Controller;
 
 import com.codecool.sportSite.Service.UserService;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Map;
@@ -19,8 +18,8 @@ public class UserController {
     UserService userService;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@RequestParam Map<String, String> reqPar) {
-        userService.register(reqPar);
+    public String register(@RequestBody String userJson) {
+        userService.register(userJson);
         return "Success registration";
     }
 

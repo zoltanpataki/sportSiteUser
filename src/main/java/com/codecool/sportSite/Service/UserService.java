@@ -2,10 +2,13 @@ package com.codecool.sportSite.Service;
 
 import com.codecool.sportSite.Model.User;
 import com.codecool.sportSite.Repository.UserRepository;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.Map;
 
 @Service
@@ -15,12 +18,13 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public void register(Map<String, String> requestParams){
-        String username = requestParams.get("username");
-        String password = requestParams.get("password");
-        String email = requestParams.get("email");
-        String firstname = requestParams.get("firstname");
-        String lastname = requestParams.get("lastname");
+    public void register(String userJson){
+        JSONObject jsonObject = new JSONObject(userJson);
+        String username = jsonObject.getString("username");
+        String password = jsonObject.getString("password");
+        String email = jsonObject.getString("email");
+        String firstname = jsonObject.getString("firstname");
+        String lastname = jsonObject.getString("lastname");
         try {
             if(username.length() > 4 || password.length() > 4) {
                 User newUser = new User(firstname, lastname, email, username, password);
@@ -74,5 +78,11 @@ public class UserService {
     public User getUserById(Long id){
         return userRepository.findOne(id);
 
+    }
+
+    public JSONObject getJson(String url) throws IOException {
+        RestTemplate restTemplate = new RestTemplate();
+        String jsonText = restTemplate.getForEntity(url, String.class).getBody();
+        return new JSONObject(jsonText);
     }
 }
