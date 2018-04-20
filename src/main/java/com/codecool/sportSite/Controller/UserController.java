@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.util.Map;
 
 @RestController
@@ -18,14 +20,14 @@ public class UserController {
     UserService userService;
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@RequestBody String userJson) {
+    public String register(@RequestBody String userJson) throws NoSuchProviderException, NoSuchAlgorithmException{
         userService.register(userJson);
         return "Success registration";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@RequestParam Map<String, String> reqPar, HttpSession session){
-        String result = userService.login(reqPar, session);
+    public String login(@RequestBody String loginJson, HttpSession session){
+        String result = userService.login(loginJson, session);
         if (result.equals("Successful login")) {
             return "Successful login";
         }

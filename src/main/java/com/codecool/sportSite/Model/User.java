@@ -15,13 +15,15 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
     private String password;
+    private byte[] salt;
 
-    public User(String firstName, String lastName, String email, String username, String password) {
+    public User(String firstName, String lastName, String email, String username, String password, byte[] salt) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
+        this.salt = salt;
     }
 
     public User() {
@@ -73,5 +75,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public byte[] getSalt() {
+        return salt;
+    }
+
+    public void setSalt(byte[] salt) {
+        this.salt = salt;
     }
 }
