@@ -15,15 +15,17 @@ public class User {
     @Column(nullable = false, unique = true)
     private String username;
     private String password;
+    private String picture;
     private byte[] salt;
 
-    public User(String firstName, String lastName, String email, String username, String password, byte[] salt) {
+    public User(String firstName, String lastName, String email, String username, String password, byte[] salt, String picture) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.username = username;
         this.password = password;
         this.salt = salt;
+        this.picture = picture;
     }
 
     public User() {
@@ -83,5 +85,13 @@ public class User {
 
     public void setSalt(byte[] salt) {
         this.salt = salt;
+    }
+
+    public String getPicture() {
+        return picture;
+    }
+
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 }

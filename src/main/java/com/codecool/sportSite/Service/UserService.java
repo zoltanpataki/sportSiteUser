@@ -2,8 +2,10 @@ package com.codecool.sportSite.Service;
 
 import com.codecool.sportSite.Model.User;
 import com.codecool.sportSite.Repository.UserRepository;
+import org.apache.commons.lang3.StringUtils;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.*;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -13,8 +15,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 import java.security.SecureRandom;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -23,7 +24,7 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public void register(String userJson) throws NoSuchProviderException, NoSuchAlgorithmException{
+    public boolean register(String userJson) throws NoSuchProviderException, NoSuchAlgorithmException{
         byte[] salt = generateSalt();
         JSONObject jsonObject = new JSONObject(userJson);
         String username = jsonObject.getString("username");
@@ -31,44 +32,58 @@ public class UserService {
         String email = jsonObject.getString("email");
         String firstname = jsonObject.getString("firstname");
         String lastname = jsonObject.getString("lastname");
+        String picture = "no picture";
         try {
             if(username.length() > 4 && jsonObject.getString("password").length() > 4 &&
                     firstname.length() > 4 && lastname.length() > 4 && email.contains("@")) {
-                User newUser = new User(firstname, lastname, email, username, password, salt);
+                User newUser = new User(firstname, lastname, email, username, password, salt, picture);
                 userRepository.save(newUser);
+                return true;
+            } else {
+                throw new IllegalArgumentException("Registration failed!");
             }
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (IllegalArgumentException e) {
+            e.getMessage();
+            return false;
         }
+
 
     }
 
-    public String login(String loginJson, HttpSession session) {
+    public Map<String, String> auth0Register(String userJson) throws NoSuchProviderException, NoSuchAlgorithmException{
+        byte[] salt = generateSalt();
+        Map<String, String> userMap = new HashMap<>();
+        JSONObject jsonObject = new JSONObject("{" + userJson + "}");
+        String firstname = jsonObject.getString("given_name");
+        String lastname = jsonObject.getString("family_name");
+        String picture = jsonObject.getString("picture");
+        String username = jsonObject.getString("nickname");
+        String email = "true";
+        String password = "no need";
+        User newUser = new User(firstname, lastname, email, username, password, salt, picture);
+        userMap.put("username", username);
+        userMap.put("userpicture", picture);
+        userRepository.save(newUser);
+        return userMap;
+    }
+
+    public Map<String, String> login(String loginJson) {
+        Map<String, String> userMap = new HashMap<>();
         JSONObject jsonObject = new JSONObject(loginJson);
         String email = jsonObject.getString("email");
         String password = jsonObject.getString("password");
         User result = userRepository.findByEmail(email);
         if (result == null){
-            return "no such user";
+            userMap.put("fail", "No such user!");
+            return userMap;
+        } else if (result.getPassword().equals(getSecurePassword(password, result.getSalt()))){
+            userMap.put("success", "Success registration");
+            return userMap;
         }
-
-        String id = String.valueOf(result.getId());
-        if (result.getPassword().equals(getSecurePassword(password, result.getSalt()))) {
-            session.setAttribute("userId", id);
-        }
-        return "Successful login"; // ENUM
+        userMap.put("fail", "Unauthorised user!");
+        return userMap;
     }
 
-
-    public boolean userExists(String username){
-        try {
-            User result = userRepository.findByEmail(username);
-            return false;
-        } catch (javax.persistence.NoResultException e){
-            System.out.println(e);
-            return true;
-        }
-    }
 
     public void logoutUser(HttpSession session) {
         session.removeAttribute("userId");
@@ -95,7 +110,7 @@ public class UserService {
         return new JSONObject(jsonText);
     }
 
-    public byte[] generateSalt() throws NoSuchAlgorithmException, NoSuchProviderException {
+    private byte[] generateSalt() throws NoSuchAlgorithmException, NoSuchProviderException {
         final Random r = SecureRandom.getInstance("SHA1PRNG");
         byte[] salt = new byte[16];
         r.nextBytes(salt);
@@ -123,5 +138,26 @@ public class UserService {
             e.printStackTrace();
         }
         return generatedPassword;
+    }
+
+    public Map<String, String> getUserInfo(String url, String accessToken){
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
+        headers.set("Authorization", "Bearer " + accessToken);
+        HttpEntity<String> entity = new HttpEntity<>(headers);
+        ResponseEntity<String> result = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
+        String value = result.getBody();
+        value = StringUtils.substringBetween(value, "{", "}");
+        String[] keyValuePairs = value.split(",");
+        Map<String,String> userMap = new HashMap<>();
+
+        for(String pair : keyValuePairs)
+        {
+            String[] entry = pair.split(":", 2);
+            System.out.println(Arrays.toString(entry));
+            userMap.put(entry[0].trim().replace("\"", ""), entry[1].trim().replace("\"", ""));
+        }
+        return userMap;
     }
 }
