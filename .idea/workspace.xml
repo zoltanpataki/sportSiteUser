@@ -2,15 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c8203e1c-ead8-4587-a119-9d2b7f8f2a7a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/sportSiteUser.iml" afterPath="$PROJECT_DIR$/.idea/sportSiteUser.iml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Controller/UserController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Model/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Model/User.java" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Service/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Service/UserService.java" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
       <change beforePath="$PROJECT_DIR$/target/SportSiteUser-1.0-SNAPSHOT.jar.original" afterPath="$PROJECT_DIR$/target/SportSiteUser-1.0-SNAPSHOT.jar.original" />
+      <change beforePath="$PROJECT_DIR$/target/heroku/app/pom.xml" afterPath="$PROJECT_DIR$/target/heroku/app/pom.xml" />
       <change beforePath="$PROJECT_DIR$/target/heroku/slug.tgz" afterPath="$PROJECT_DIR$/target/heroku/slug.tgz" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,8 +23,8 @@
       <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="37" column="36" lean-forward="true" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+            <state relative-caret-position="300">
+              <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
               <folding>
                 <element signature="e#1643#1644#0" expanded="true" />
                 <element signature="e#1694#1695#0" expanded="true" />
@@ -39,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="74" column="42" lean-forward="true" selection-start-line="73" selection-start-column="20" selection-end-line="74" selection-end-column="42" />
+              <caret line="74" column="42" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="74" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -48,12 +46,12 @@
       <file leaf-file-name="UserService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Service/UserService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="82" column="50" lean-forward="false" selection-start-line="82" selection-start-column="50" selection-end-line="82" selection-end-column="50" />
+            <state relative-caret-position="-75">
+              <caret line="55" column="35" lean-forward="true" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
               <folding>
-                <element signature="e#3540#3541#0" expanded="true" />
-                <element signature="e#3589#3590#0" expanded="true" />
-                <marker date="1527691124899" expanded="true" signature="3483:3489" ph="{...}" />
+                <element signature="e#3578#3579#0" expanded="true" />
+                <element signature="e#3627#3628#0" expanded="true" />
+                <marker date="1527703016619" expanded="true" signature="3521:3527" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -119,10 +117,10 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Controller/AuthControllers/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Model/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Controller/AuthControllers/AuthController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Controller/AuthControllers/CallbackController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
       </list>
     </option>
@@ -431,12 +429,12 @@
       <workItem from="1524724835908" duration="651000" />
       <workItem from="1525034250295" duration="1046000" />
       <workItem from="1527241225735" duration="7402000" />
-      <workItem from="1527673578505" duration="10629000" />
+      <workItem from="1527673578505" duration="14642000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70557000" />
+    <option name="totallyTimeSpent" value="74570000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="25" width="1551" height="875" extended-state="6" />
@@ -461,7 +459,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41720992" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16297261" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43937418" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2488717" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -537,9 +535,9 @@
         <state relative-caret-position="585">
           <caret line="45" column="42" lean-forward="false" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
           <folding>
-            <element signature="e#3540#3541#0" expanded="true" />
-            <element signature="e#3589#3590#0" expanded="true" />
-            <marker date="1527691124899" expanded="true" signature="3483:3489" ph="{...}" />
+            <element signature="e#3578#3579#0" expanded="true" />
+            <element signature="e#3627#3628#0" expanded="true" />
+            <marker date="1527703016619" expanded="true" signature="3521:3527" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -570,9 +568,9 @@
         <state relative-caret-position="660">
           <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
           <folding>
-            <element signature="e#3540#3541#0" expanded="true" />
-            <element signature="e#3589#3590#0" expanded="true" />
-            <marker date="1527691124899" expanded="true" signature="3483:3489" ph="{...}" />
+            <element signature="e#3578#3579#0" expanded="true" />
+            <element signature="e#3627#3628#0" expanded="true" />
+            <marker date="1527703016619" expanded="true" signature="3521:3527" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -673,9 +671,9 @@
         <state relative-caret-position="322">
           <caret line="45" column="42" lean-forward="false" selection-start-line="45" selection-start-column="42" selection-end-line="45" selection-end-column="42" />
           <folding>
-            <element signature="e#3540#3541#0" expanded="true" />
-            <element signature="e#3589#3590#0" expanded="true" />
-            <marker date="1527691124899" expanded="true" signature="3483:3489" ph="{...}" />
+            <element signature="e#3578#3579#0" expanded="true" />
+            <element signature="e#3627#3628#0" expanded="true" />
+            <marker date="1527703016619" expanded="true" signature="3521:3527" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -767,9 +765,9 @@
         <state relative-caret-position="322">
           <caret line="45" column="9" lean-forward="false" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
           <folding>
-            <element signature="e#3540#3541#0" expanded="true" />
-            <element signature="e#3589#3590#0" expanded="true" />
-            <marker date="1527691124899" expanded="true" signature="3483:3489" ph="{...}" />
+            <element signature="e#3578#3579#0" expanded="true" />
+            <element signature="e#3627#3628#0" expanded="true" />
+            <marker date="1527703016619" expanded="true" signature="3521:3527" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -800,9 +798,9 @@
         <state relative-caret-position="660">
           <caret line="50" column="13" lean-forward="false" selection-start-line="50" selection-start-column="13" selection-end-line="50" selection-end-column="13" />
           <folding>
-            <element signature="e#3540#3541#0" expanded="true" />
-            <element signature="e#3589#3590#0" expanded="true" />
-            <marker date="1527691124899" expanded="true" signature="3483:3489" ph="{...}" />
+            <element signature="e#3578#3579#0" expanded="true" />
+            <element signature="e#3627#3628#0" expanded="true" />
+            <marker date="1527703016619" expanded="true" signature="3521:3527" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -878,18 +876,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="82" column="50" lean-forward="false" selection-start-line="82" selection-start-column="50" selection-end-line="82" selection-end-column="50" />
-          <folding>
-            <element signature="e#3540#3541#0" expanded="true" />
-            <element signature="e#3589#3590#0" expanded="true" />
-            <marker date="1527691124899" expanded="true" signature="3483:3489" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Controller/AuthControllers/AppConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -925,7 +911,7 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="74" column="42" lean-forward="true" selection-start-line="73" selection-start-column="20" selection-end-line="74" selection-end-column="42" />
+          <caret line="74" column="42" lean-forward="false" selection-start-line="73" selection-start-column="20" selection-end-line="74" selection-end-column="42" />
           <folding />
         </state>
       </provider>
@@ -944,11 +930,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="37" column="36" lean-forward="true" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
+        <state relative-caret-position="300">
+          <caret line="37" column="36" lean-forward="false" selection-start-line="37" selection-start-column="36" selection-end-line="37" selection-end-column="36" />
           <folding>
             <element signature="e#1643#1644#0" expanded="true" />
             <element signature="e#1694#1695#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/codecool/sportSite/Service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-75">
+          <caret line="55" column="35" lean-forward="true" selection-start-line="55" selection-start-column="35" selection-end-line="55" selection-end-column="35" />
+          <folding>
+            <element signature="e#3578#3579#0" expanded="true" />
+            <element signature="e#3627#3628#0" expanded="true" />
+            <marker date="1527703016619" expanded="true" signature="3521:3527" ph="{...}" />
           </folding>
         </state>
       </provider>

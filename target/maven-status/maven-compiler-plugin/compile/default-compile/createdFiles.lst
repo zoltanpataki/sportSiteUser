@@ -1,5 +1,5 @@
+com/codecool/sportSite/Model/User.class
 com/codecool/sportSite/Launch.class
 com/codecool/sportSite/Controller/UserController.class
-com/codecool/sportSite/Repository/UserRepository.class
-com/codecool/sportSite/Model/User.class
 com/codecool/sportSite/Service/UserService.class
+com/codecool/sportSite/Repository/UserRepository.class

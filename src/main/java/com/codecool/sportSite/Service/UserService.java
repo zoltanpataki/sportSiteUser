@@ -53,6 +53,7 @@ public class UserService {
     public Map<String, String> auth0Register(String userJson) throws NoSuchProviderException, NoSuchAlgorithmException{
         byte[] salt = generateSalt();
         Map<String, String> userMap = new HashMap<>();
+        System.out.println(userJson);
         JSONObject jsonObject = new JSONObject("{" + userJson + "}");
         String firstname = jsonObject.getString("given_name");
         String lastname = jsonObject.getString("family_name");
