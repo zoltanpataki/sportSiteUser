@@ -54,7 +54,7 @@ public class UserService {
         byte[] salt = generateSalt();
         Map<String, String> userMap = new HashMap<>();
         System.out.println(userJson);
-        JSONObject jsonObject = new JSONObject("{" + userJson + "}");
+        JSONObject jsonObject = new JSONObject("{"+userJson+"}");
         String firstname = jsonObject.getString("given_name");
         String lastname = jsonObject.getString("family_name");
         String picture = jsonObject.getString("picture");
