@@ -62,10 +62,16 @@ public class UserService {
         String username = jsonObject.getString("nickname");
         String email = "true";
         String password = "no need";
-        User newUser = new User(firstname, lastname, email, username, password, salt, picture);
-        userMap.put("username", username);
-        userMap.put("userpicture", picture);
-        userRepository.save(newUser);
+        if (userRepository.findByUsername(username) == null){
+            User newUser = new User(firstname, lastname, email, username, password, salt, picture);
+            userMap.put("username", username);
+            userMap.put("userpicture", picture);
+            userRepository.save(newUser);
+        } else {
+            userMap.put("login", "Already registered user!");
+            userMap.put("username", username);
+            userMap.put("userpicture", picture);
+        }
         return userMap;
     }
 
